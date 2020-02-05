@@ -1,1 +1,1 @@
-# full-stack-osa-3
+# Osan 3 tehtävät
