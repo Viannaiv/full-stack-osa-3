@@ -23,3 +23,21 @@ GET http://localhost:3001/info
 ### Get the information of a specific person
 
 GET http://localhost:3001/api/persons/3
+
+### Create a new person without name
+
+POST http://localhost:3001/api/persons
+content-type: application/json
+
+{
+    "number": 123
+}
+
+### Create a new person without number
+
+POST http://localhost:3001/api/persons
+content-type: application/json
+
+{
+    "name": "Test errorred posting from VS REST Client"
+}
