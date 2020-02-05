@@ -18,3 +18,6 @@ GET http://localhost:3001/api/persons
 
 ### Get info page
 GET http://localhost:3001/info
+
+### Get the information of a specific person
+GET http://localhost:3001/api/persons/3
