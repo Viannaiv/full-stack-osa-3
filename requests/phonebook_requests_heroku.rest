@@ -1,0 +1,43 @@
+### Get all listed persons
+
+GET https://vt-fullstack-puhelinluettelo.herokuapp.com/api/persons
+
+### Get info page
+
+GET https://vt-fullstack-puhelinluettelo.herokuapp.com/info
+
+### Get the information of a specific person
+
+GET https://vt-fullstack-puhelinluettelo.herokuapp.com/api/persons/3
+
+### Delete the information of a person
+
+DELETE https://vt-fullstack-puhelinluettelo.herokuapp.com/api/persons/4
+
+### Create a new person
+
+POST https://vt-fullstack-puhelinluettelo.herokuapp.com/api/persons
+content-type: application/json
+
+{
+    "name": "Test posting from VS REST Client",
+    "number": 123
+}
+
+### Create a new person without name
+
+POST https://vt-fullstack-puhelinluettelo.herokuapp.com/api/persons
+content-type: application/json
+
+{
+    "number": 123
+}
+
+### Create a new person without number
+
+POST https://vt-fullstack-puhelinluettelo.herokuapp.com/api/persons
+content-type: application/json
+
+{
+    "name": "Test errored posting from VS REST Client"
+}
