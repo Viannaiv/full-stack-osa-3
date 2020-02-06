@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf build && cd ../Osan-3-frontend/puhelinluettelo && npm run build --prod && cp -r build ../../full-stack-osa-3-backend/",
     "deploy": "git push heroku master",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",    
+    "deploy:full": "npm run build:ui && git add . && git commit -m 'Tehtävä 3.11: puhelinluettelo full stack' && git push && npm run deploy",    
     "logs:prod": "heroku logs --tail"
   },
   "repository": {
