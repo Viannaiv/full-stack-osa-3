@@ -1,16 +1,3 @@
-### Create a new person
-
-POST http://localhost:3001/api/persons
-content-type: application/json
-
-{
-    "name": "Test posting from VS REST Client",
-    "number": 123
-}
-
-### Delete the information of a person
-
-DELETE http://localhost:3001/api/persons/4
 
 ### Get all listed persons
 
@@ -23,6 +10,20 @@ GET http://localhost:3001/info
 ### Get the information of a specific person
 
 GET http://localhost:3001/api/persons/3
+
+### Delete the information of a person
+
+DELETE http://localhost:3001/api/persons/4
+
+### Create a new person
+
+POST http://localhost:3001/api/persons
+content-type: application/json
+
+{
+    "name": "Test posting from VS REST Client",
+    "number": 123
+}
 
 ### Create a new person without name
 
@@ -39,5 +40,5 @@ POST http://localhost:3001/api/persons
 content-type: application/json
 
 {
-    "name": "Test errorred posting from VS REST Client"
+    "name": "Test errored posting from VS REST Client"
 }
