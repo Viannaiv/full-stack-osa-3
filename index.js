@@ -79,23 +79,22 @@ app.post('/api/persons', (req, res) => {
         })
     }
 
-    if (persons.find(p => p.name === body.name)) {
-        return res.status(400).json({
-            error: 'name must be unique'
-        })
-    }
+    /* for now there is no check that names are unique
+        if (persons.find(p => p.name === body.name)) {
+            return res.status(400).json({
+                error: 'name must be unique'
+            })
+        }
+    */
 
-    const id = Math.floor(Math.random() * 9000000) + 1
-
-    const person = {
+    const person = new Person({
         name: body.name,
-        number: body.number,
-        id: id
-    }
+        number: body.number
+    })
 
-    persons = persons.concat(person)
-
-    res.json(person)
+    person.save().then(savedPerson => {
+        res.json(person.toJSON())
+    })
 })
 
 const PORT = process.env.PORT
