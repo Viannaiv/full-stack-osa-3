@@ -21,7 +21,7 @@ content-type: application/json
 
 {
     "name": "Test posting from VS REST Client",
-    "number": 123
+    "number": 12345678
 }
 
 ### Create a new person without name
@@ -30,7 +30,7 @@ POST https://vt-fullstack-puhelinluettelo.herokuapp.com/api/persons
 content-type: application/json
 
 {
-    "number": 123
+    "number": 12345678
 }
 
 ### Create a new person without number
@@ -40,4 +40,14 @@ content-type: application/json
 
 {
     "name": "Test errored posting from VS REST Client"
+}
+
+### Create a new person with too short name and number
+
+POST https://vt-fullstack-puhelinluettelo.herokuapp.com/api/persons
+content-type: application/json
+
+{
+    "name": "a",
+    "number": 123
 }

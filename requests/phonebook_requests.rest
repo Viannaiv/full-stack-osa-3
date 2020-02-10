@@ -22,7 +22,7 @@ content-type: application/json
 
 {
     "name": "Test posting from VS REST Client",
-    "number": 123
+    "number": 12345678
 }
 
 ### Create a new person without name
@@ -31,7 +31,7 @@ POST http://localhost:3001/api/persons
 content-type: application/json
 
 {
-    "number": 123
+    "number": 12345678
 }
 
 ### Create a new person without number
@@ -41,4 +41,14 @@ content-type: application/json
 
 {
     "name": "Test errored posting from VS REST Client"
+}
+
+### Create a new person with too short name and number
+
+POST http://localhost:3001/api/persons
+content-type: application/json
+
+{
+    "name": "a",
+    "number": 123
 }
