@@ -53,7 +53,7 @@ app.delete('/api/persons/:id', (req, res, next) => {
         .catch(error => next(error))
 })
 
-app.post('/api/persons', (req, res) => {
+app.post('/api/persons', (req, res, next) => {
     const body = req.body
 
     if (!body.name || !body.number) {
@@ -62,22 +62,16 @@ app.post('/api/persons', (req, res) => {
         })
     }
 
-    /* for now there is no check that names are unique
-        if (persons.find(p => p.name === body.name)) {
-            return res.status(400).json({
-                error: 'name must be unique'
-            })
-        }
-    */
-
     const person = new Person({
         name: body.name,
         number: body.number
     })
 
-    person.save().then(savedPerson => {
-        res.json(person.toJSON())
-    })
+    person.save()
+        .then(savedPerson => {
+            res.json(person.toJSON())
+        })
+        .catch(error => next(error))
 })
 
 app.put('/api/persons/:id', (req, res, next) => {
@@ -95,13 +89,15 @@ app.put('/api/persons/:id', (req, res, next) => {
         .catch(error => next(error))
 })
 
-const errorHandler = (error, request, response, next) => {
+const errorHandler = (error, req, res, next) => {
     console.error(error.message)
   
     if (error.name === 'CastError' && error.kind == 'ObjectId') {
-        return response.status(400).send({ error: 'malformatted id' })
-    } 
-  
+        return res.status(400).send({ error: 'malformatted id' })
+    } else if (error.name === 'ValidationError') {
+        return res.status(400).send({error: 'name must be unique'})
+    }
+
     next(error)
 }
   
